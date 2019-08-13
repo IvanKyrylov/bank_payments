@@ -23,7 +23,7 @@ public class ReplenishmentHistory {
 
     @ManyToOne
     @JoinColumn(name = "bank_account_id")
-    private BankAccount bankAccountId;
+    private BankAccount bankAccount;
 
     public int getId() {
         return id;
@@ -57,11 +57,4 @@ public class ReplenishmentHistory {
         this.type = type;
     }
 
-    public BankAccount getBankAccountId() {
-        return bankAccountId;
-    }
-
-    public void setBankAccountId(BankAccount bankAccountId) {
-        this.bankAccountId = bankAccountId;
-    }
 }

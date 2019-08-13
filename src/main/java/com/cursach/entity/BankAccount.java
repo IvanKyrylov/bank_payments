@@ -15,7 +15,13 @@ public class BankAccount {
     private int id;
 
     @Column(name = "num")
-    private int num;
+    private long num;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "credit_limit")
+    private int creditLimit;
 
     @Column(name = "credit")
     private int credit;
@@ -39,7 +45,7 @@ public class BankAccount {
     @JoinColumn(name = "user_id")
     private User userId;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bankAccount", fetch = FetchType.EAGER)
     private List<ReplenishmentHistory> replenishmentHistorys = new ArrayList<>();
 
     public int getId() {
@@ -50,12 +56,28 @@ public class BankAccount {
         this.id = id;
     }
 
-    public int getNum() {
+    public long getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(long num) {
         this.num = num;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getCreditLimit() {
+        return creditLimit;
+    }
+
+    public void setCreditLimit(int creditLimit) {
+        this.creditLimit = creditLimit;
     }
 
     public int getCredit() {

@@ -12,7 +12,7 @@ public class Authorities implements GrantedAuthority {
     @Column(name = "authority")
     private String authority;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "id")
     private User user;
 
