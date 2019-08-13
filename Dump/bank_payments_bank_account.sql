@@ -1,0 +1,62 @@
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+--
+-- Host: localhost    Database: bank_payments
+-- ------------------------------------------------------
+-- Server version	8.0.16
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `bank_account`
+--
+
+DROP TABLE IF EXISTS `bank_account`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `bank_account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `num` int(11) NOT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `credit_limit` int(11) DEFAULT NULL,
+  `credit` int(11) DEFAULT NULL,
+  `percent` int(11) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `return_time` timestamp NULL DEFAULT NULL,
+  `cash` int(11) NOT NULL,
+  `deposit_rate` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_credit_account_user1_idx` (`user_id`),
+  CONSTRAINT `fk_credit_account_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bank_account`
+--
+
+LOCK TABLES `bank_account` WRITE;
+/*!40000 ALTER TABLE `bank_account` DISABLE KEYS */;
+INSERT INTO `bank_account` VALUES (1,15125251,NULL,155151512,15152,15,'1970-01-04 21:00:00','1970-01-09 21:00:00',15152,512,1),(2,125337853,'Credit',10000,0,15,'2019-08-08 18:22:04','2019-08-20 08:08:44',0,0,1),(3,357117371,'Credit',10000,0,15,'2019-08-08 18:34:02','2019-07-20 01:31:15',0,0,1),(4,703996210,'Credit',10000,0,15,'2019-08-08 18:36:48','2019-09-07 18:36:48',0,0,1),(5,126456478,'Credit',10000,0,15,'2019-08-08 18:42:05','2019-09-07 18:42:05',0,0,1),(6,99326331,'Deposit',0,0,0,NULL,NULL,0,5,1),(7,0,'Deposit',0,0,0,'2019-08-08 19:00:02','2019-09-07 19:00:02',0,5,1),(8,434103271,'Deposit',0,0,0,'2019-08-08 19:13:12','2019-09-07 19:13:12',0,5,1),(9,570414786,'Credit',10000,0,15,'2019-08-08 19:13:17','2019-09-07 19:13:17',0,0,1),(10,147788979,'Deposit',0,0,0,'2019-08-08 19:14:39','2019-09-07 19:14:39',0,5,1),(11,362431509,'Deposit',0,0,0,'2019-08-08 19:15:04','2019-09-07 19:15:04',0,5,1),(14,677486822,'Credit',10000,0,15,'2019-08-08 20:36:46','2019-09-07 20:36:46',0,0,2),(15,296163954,'Deposit',0,0,0,'2019-08-08 20:36:50','2019-09-07 20:36:50',0,5,2);
+/*!40000 ALTER TABLE `bank_account` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-08-13 18:20:51
