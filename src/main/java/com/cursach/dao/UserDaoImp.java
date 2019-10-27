@@ -41,11 +41,6 @@ public class UserDaoImp implements UserDao {
     @Override
     public User findUserByUsername(String username) {
         return (User) sessionFactory.getCurrentSession().createQuery("FROM User WHERE username = :paramName").setParameter("paramName", username).uniqueResult();
-//        List<User> users = allUser();
-//        for ( User user : users) {
-//            if (user.getUsername().equals(username) ) return user;
-//        }
-//        return null;
     }
 
     @Override

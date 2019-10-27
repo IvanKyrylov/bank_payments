@@ -44,7 +44,7 @@
     <input type="hidden"
            name="${_csrf.parameterName}"
            value="${_csrf.token}"/>
-    <button type="submit" class="btn">Log in</button>
+    <button type="submit" class="btn">Registration</button>
 </form>
 <br/>
 </body>
